@@ -35,13 +35,14 @@ class Emoji {
         if (emojis.some((emoji, index) => {
             if (emoji.classList.contains('highlighted')) {
                 emoji.classList.remove('highlighted')
-                if (index+way <= 0 && way < 0) {
+                if (index + way <= 0 && way < 0) {
                     index = emojis.length
                 }
                 if (index + way >= emojis.length && way > 0) {
                     index = 0
                 }
                 highlighted = emojis[index+way]
+                if (!highlighted) return true
                 highlighted.classList.add('highlighted')
                 scrollTo(highlighted)
                 return true
@@ -61,12 +62,18 @@ class Emoji {
         }
     }
 
+    static getHighlightedEmoji() {
+        return this.emojis.querySelector('.emoji.highlighted')
+    }
+
     static handleKeydown(e) {
         if (e.target == this.search) {
             if (e.keyCode == 38) {
                 this.moveHighlight(-1)
             } else if (e.keyCode == 40) {
                 this.moveHighlight(1)
+            } else if (e.keyCode == 13) {
+                this.copyEmojiAlias(this.getHighlightedEmoji().getAttribute('data-clipboard'))
             }
             return
         }
@@ -91,7 +98,7 @@ class Emoji {
     }
 
     static copyEmojiAlias(alias) {
-        search.value = ''
+        // search.value = ''
         Clipboard.copy(alias)
         Notif.show(`📋 Copied <code>${alias}</code> ${emojione.shortnameToUnicode_(alias)}`)
     }
