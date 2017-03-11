@@ -65,6 +65,8 @@ class Emoji {
                 const highlightedEmoji = this.getHighlightedEmoji()
                 if (!highlightedEmoji) return
                 this.copyEmojiAlias(highlightedEmoji.getAttribute('data-clipboard'))
+                this.search.focus()
+
             }
             return
         }
@@ -91,7 +93,6 @@ class Emoji {
     static copyEmojiAlias(alias) {
         Clipboard.copy(alias)
         Notif.show(`📋 Copied <code>${alias}</code> ${emojione.shortnameToUnicode_(alias)}`)
-        this.search.focus()
     }
 
     static bindDOM() {
