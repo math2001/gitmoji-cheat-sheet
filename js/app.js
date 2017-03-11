@@ -3,19 +3,7 @@
 const emojione = require('./js/emojione.min')
 const fuzzySearch = require('./js/fuzzy-search')
 const Clipboard = require('./js/clipboard')
-
-function showNotif(html) {
-    const notif = document.createElement('p')
-    notif.classList.add('notif')
-    notif.innerHTML = html
-    document.body.appendChild(notif)
-    setTimeout(function() {
-        notif.classList.add('fade')
-        setTimeout(function() {
-            notif.parentNode.removeChild(notif)
-        }, 500);
-    }, 2000);
-}
+const Notif = require('./js/notif')
 
 ;(function () {
 
@@ -99,7 +87,7 @@ function showNotif(html) {
         }
         e.preventDefault()
         Clipboard.copy(text)
-        showNotif(`📋 Copied <code>${text}</code> ${emojione.shortnameToUnicode(text)}`)
+        Notif.show(`📋 Copied <code>${text}</code> ${emojione.shortnameToUnicode(text)}`)
     }
 
     Clipboard.init()
