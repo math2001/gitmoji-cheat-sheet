@@ -27,39 +27,28 @@ class Emoji {
     }
 
     static moveHighlight (way) {
-        const scrollTo = (element) => {
-           element.scrollIntoViewIfNeeded()
-        }
         const emojis = arr(this.emojis.querySelectorAll('.emoji'))
-        let highlighted = null;
-        if (emojis.some((emoji, index) => {
-            if (emoji.classList.contains('highlighted')) {
-                emoji.classList.remove('highlighted')
-                if (index + way <= 0 && way < 0) {
-                    index = emojis.length
-                }
-                if (index + way >= emojis.length && way > 0) {
-                    index = 0
-                }
-                highlighted = emojis[index+way]
-                if (!highlighted) return true
-                highlighted.classList.add('highlighted')
-                scrollTo(highlighted)
-                return true
-            }
-        })) {
+
+        if (emojis.length == 0) {
             return
         }
 
-        if (way >= 0) {
-            highlighted = emojis[0]
-            highlighted.classList.add('highlighted')
-            scrollTo(highlighted)
-        } else {
-            highlighted = emojis.slice(-1)
-            highlighted.classList.add('highlighted')
-            scrollTo(highlighted)
-        }
+        emojis.some((emoji, index) => {
+            if (emoji.classList.contains('highlighted')) {
+                emoji.classList.remove('highlighted')
+
+                if (index + way < 0 && way < 0) {
+                    index = emojis.length
+                } else if (index + way >= emojis.length && way > 0) {
+                    index = -1
+                }
+
+                let highlighted = emojis[index+way]
+                highlighted.classList.add('highlighted')
+                highlighted.scrollIntoViewIfNeeded()
+                return true
+            }
+        })
     }
 
     static getHighlightedEmoji() {
@@ -73,7 +62,9 @@ class Emoji {
             } else if (e.keyCode == 40) {
                 this.moveHighlight(1)
             } else if (e.keyCode == 13) {
-                this.copyEmojiAlias(this.getHighlightedEmoji().getAttribute('data-clipboard'))
+                const highlightedEmoji = this.getHighlightedEmoji()
+                if (!highlightedEmoji) return
+                this.copyEmojiAlias(highlightedEmoji.getAttribute('data-clipboard'))
             }
             return
         }
