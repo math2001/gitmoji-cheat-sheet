@@ -98,9 +98,9 @@ class Emoji {
     }
 
     static copyEmojiAlias(alias) {
-        // search.value = ''
         Clipboard.copy(alias)
         Notif.show(`📋 Copied <code>${alias}</code> ${emojione.shortnameToUnicode_(alias)}`)
+        this.search.focus()
     }
 
     static bindDOM() {
@@ -115,11 +115,13 @@ class Emoji {
             return
         }
         let html = '';
-        emojis.forEach(function (infos) {
+        emojis.forEach(function (infos, index) {
             let [alias, usage, keywords] = infos
             keywords = keywords != '' ? `<code class="emoji-keyword">${keywords}</code>` : ''
-            let emoji = emojione.shortnameToUnicode_(`:${alias}:`)
-            html += `<tr class="emoji" data-clipboard=":${alias}:">
+            let emoji = emojione.shortnameToUnicode_(`:${alias}:`),
+                highlighted = index == 0 ? ' highlighted' : ''
+
+            html += `<tr class="emoji${highlighted}" data-clipboard=":${alias}:">
                        <td class="emoji-emoji">${emoji}</td>
                        <td class="emoji-description">${usage}${keywords}</td>
                      </tr>`
