@@ -5,6 +5,9 @@ const fuzzySearch = require('./js/fuzzy-search')
 const Clipboard = require('./js/clipboard')
 const Notif = require('./js/notif')
 
+emojione.shortnameToUnicode_ = (text) =>
+    emojione.shortnameToUnicode(text).replace(':memo:', '📝')
+
 ;(function () {
 
     const all_emojis = [
@@ -64,7 +67,7 @@ const Notif = require('./js/notif')
         emojis.forEach(function (infos) {
             let [alias, usage, keywords] = infos
             keywords = keywords != '' ? `<code class="emoji-keyword">${keywords}</code>` : ''
-            let emoji = emojione.shortnameToUnicode(`:${alias}:`).replace(':memo:', '📝')
+            let emoji = emojione.shortnameToUnicode_(`:${alias}:`)
             html += `<tr class="emoji" data-clipboard=":${alias}:">
                        <td class="emoji-emoji">${emoji}</td>
                        <td class="emoji-description">${usage}${keywords}</td>
@@ -87,12 +90,12 @@ const Notif = require('./js/notif')
         }
         e.preventDefault()
         Clipboard.copy(text)
-        Notif.show(`📋 Copied <code>${text}</code> ${emojione.shortnameToUnicode(text)}`)
+        Notif.show(`📋 Copied <code>${text}</code> ${emojione.shortnameToUnicode_(text)}`)
     }
 
     Clipboard.init()
     search.addEventListener('input', updateEmojis)
-    document.body.addEventListener('contextmenu', handleCopyToClipboard)
+    document.body.addEventListener('dblclick', handleCopyToClipboard)
 
     renderEmojis(all_emojis)
 
