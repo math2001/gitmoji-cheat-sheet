@@ -1,11 +1,12 @@
 "use strict";
 
+const {ipcRenderer: ipc} = require('electron')
 const emojione = require('./js/emojione.min')
 const fuzzySearch = require('./js/fuzzy-search')
 const Clipboard = require('./js/clipboard')
 const Notif = require('./js/notif')
 const Emoji = require('./js/emoji')
-const {ipcRenderer: ipc} = require('electron')
+const Menu = require('./js/menu')
 
 emojione.shortnameToUnicode_ = (text) =>
     emojione.shortnameToUnicode(text).replace(':memo:', '📝')
@@ -30,6 +31,7 @@ class ScrollListener {
 
     Clipboard.init()
     Emoji.init()
+    Menu.init()
 
     const header = document.querySelector('header')
 
@@ -45,5 +47,5 @@ class ScrollListener {
         }
     })
 
-    document.querySelector('.hide-window').addEventListener('click', handleHideWindow)
+
 })()

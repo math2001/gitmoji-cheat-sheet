@@ -38,13 +38,13 @@
     z-index: 150;
     top: 50%;
     left: 50%;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     transform: translate(-50%, -50%);
     list-style: none;
     display: block;
 
-    --item-size: 50px;
+    --item-size: 75px;
     /*background-color: rgba(0, 0, 0, 0.5);*/
 }
 
@@ -72,6 +72,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all .2s ease-in-out;
 }
 
 .menu.expanded .menu-item.shut-down {
