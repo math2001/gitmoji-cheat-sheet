@@ -10,11 +10,11 @@ const Clipboard = require('./js/clipboard')
         // alias, description, keyword (for the researching)
         ['art',                       'Improving structure / format of the code.',  ''],
         ['zap',                       'Improving performance.',                     'perfs'],
-        ['fire',                      'Removing code or files.',                    '----'],
+        ['fire',                      'Removing code or files.',                    '-'],
         ['bug',                       'Fixing a bug.',                              ''],
         ['ambulance',                 'Critical hotfix.',                           'urgent'],
-        ['sparkles',                  'Introducing new features.',                  '++++'],
-        ['memo',                      'Writing docs.',                              ''],
+        ['sparkles',                  'Introducing new features.',                  '+'],
+        ['memo',                      'Writing docs.',                              'comment'],
         ['rocket',                    'Deploying stuff.',                           ''],
         ['lipstick',                  'Updating the UI and style files.',           'css'],
         ['tada',                      'Initial commit.',                            ''],
@@ -84,6 +84,7 @@ const Clipboard = require('./js/clipboard')
             node = node.parentNode
             i++
         }
+        e.preventDefault()
         Clipboard.copy(text)
 
     }
