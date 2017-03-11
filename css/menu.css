@@ -115,9 +115,12 @@
 .menu-item.shut-down {
     background-color: #404040;
     font-size: 50px;
+    color: white;
 }
 
 .menu-item svg {
     display: block;
     margin: auto;
+    width: 60%;
+    height: 60%;
 }
