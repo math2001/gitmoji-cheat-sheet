@@ -4,6 +4,19 @@ const emojione = require('./js/emojione.min')
 const fuzzySearch = require('./js/fuzzy-search')
 const Clipboard = require('./js/clipboard')
 
+function showNotif(html) {
+    const notif = document.createElement('p')
+    notif.classList.add('notif')
+    notif.innerHTML = html
+    document.body.appendChild(notif)
+    setTimeout(function() {
+        notif.classList.add('fade')
+        setTimeout(function() {
+            notif.parentNode.removeChild(notif)
+        }, 500);
+    }, 2000);
+}
+
 ;(function () {
 
     const all_emojis = [
@@ -86,7 +99,7 @@ const Clipboard = require('./js/clipboard')
         }
         e.preventDefault()
         Clipboard.copy(text)
-
+        showNotif(`📋 Copied <code>${text}</code> ${emojione.shortnameToUnicode(text)}`)
     }
 
     Clipboard.init()

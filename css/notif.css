@@ -1,0 +1,45 @@
+.notif {
+    display: block;
+    position: absolute;
+    background-color: rgba(50, 50, 50, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    bottom: 5%;
+    left: 20%;
+    right: 20%;
+    box-shadow: 0 0 20px #aaa;
+    text-align: center;
+    animation: pop .3s;
+    cursor: pointer;
+}
+
+.notif::before {
+    bottom: 0;
+    /*content: "";*/
+    display: block;
+    filter: blur(4px);
+    /*background-color: rgba(255, 0, 0, 0.5);*/
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.notif.fade {
+    transition: all .5s;
+    opacity: 0;
+    bottom: -20px;
+}
+
+@keyframes pop {
+    from {
+        transform: scale(.1);
+    }
+    90% {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
