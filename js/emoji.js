@@ -103,6 +103,10 @@ class Emoji {
     }
 
     static render(emojis) {
+        if (emojis.length == 0) {
+            this.emojis.innerHTML = `<div class="msg"><p>🤔 <i>No one's here...</i> 🕳</p><p>👻👻👻</p></div>`
+            return
+        }
         let html = '';
         emojis.forEach(function (infos) {
             let [alias, usage, keywords] = infos

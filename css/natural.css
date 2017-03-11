@@ -23,3 +23,9 @@ code {
 h1 {
     text-align: center;
 }
+
+.msg {
+    text-align: center;
+    color: #a3a3a5;
+    font-size: 5vw;
+}

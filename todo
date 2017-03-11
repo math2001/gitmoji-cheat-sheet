@@ -2,7 +2,9 @@
  ☐ copy on enter
  ☐ add tooltip (maybe in a status bar)
  ☐ add pertinence to fuzzy search
- ☐ "no emoji found for this research"
+ ☐ let user know to press ctrl+shift+e
+ ☐ let the user choose the shortcut
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ "no emoji found for this research" @done Sat 11 Mar 2017 at 23:12
  ✔ ctrl+f focuses the input @done Sat 11 Mar 2017 at 17:23
