@@ -53,20 +53,31 @@ const fuzzySearch = require('./js/fuzzy-search')
     const table = document.querySelector('#emojis')
     const search = document.querySelector('#search')
 
-    function renderEmoji(emojis) {
+    const fz = new fuzzySearch(all_emojis.map(function (emoji) {
+        return `${emoji[1]} ${emoji[2]}`
+    }))
+
+    function renderEmojis(emojis) {
         let html = '';
         emojis.forEach(function (infos) {
-            let [alias, usage] = infos
+            let [alias, usage, keywords] = infos
+            keywords = keywords != '' ? `<code class="emoji-keyword">${keywords}</code>` : ''
             let emoji = emojione.shortnameToUnicode(`:${alias}:`).replace(':memo:', '📝')
             html += `<tr class="emoji" data-clipboard=":${alias}:">
                        <td class="emoji-emoji">${emoji}</td>
-                       <td class="emoji-description">${usage}</td>
+                       <td class="emoji-description">${usage}${keywords}</td>
                      </tr>`
         }, this)
         table.innerHTML = html
     }
 
+    function updateEmojis() {
+        const indexes = fz.search(this.value, 'only indexes')
+        renderEmojis(all_emojis.filter((element, index) => indexes.includes(index)))
+    }
 
-    renderEmoji(all_emojis)
+    search.addEventListener('input', updateEmojis)
+
+    renderEmojis(all_emojis)
 
 })()

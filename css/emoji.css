@@ -30,8 +30,16 @@
     font-size: 10vw;
 }
 
-.emoji-code {
+.emoji-keyword {
     font-size: 75%;
+    display: block;
+    padding-top: 10px;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+.emoji-keyword::before {
+    content: "→ ";
 }
 
 .emoji td {
