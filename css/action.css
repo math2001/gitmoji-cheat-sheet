@@ -45,11 +45,9 @@
     display: block;
 
     --item-size: 75px;
-    /*background-color: rgba(0, 0, 0, 0.5);*/
 }
 
 .menu-item {
-    background: rgba(255, 0, 0, 0.5);
     border: none;
     width: var(--item-size);
     height: var(--item-size);
@@ -59,11 +57,13 @@
     color: white;
     position: absolute;
     display: block;
+    box-shadow: 0 0 10px #aaa;
     z-index: 155;
 }
 
 .menu-main {
-    background-color: rgba(102, 153, 204, 0.5);
+    background-image: url(./../imgs/gitmoji.png);
+    background-size: 100%;
     z-index: 160;
 }
 
@@ -72,7 +72,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: all .2s ease-in-out;
+    cursor: pointer;
+    transition: all .2s;
+    opacity: .7;
+}
+
+
+.menu-main:hover,
+.menu.expanded .menu-item:hover {
+    /*filter: contrast(100%);*/
+    opacity: 1;
+    box-shadow: 0 0 10px #aaa;
 }
 
 .menu.expanded .menu-item.shut-down {
@@ -97,4 +107,35 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+}
+
+/* ------------------------------------ */
+/* ------------ Menu Items ------------ */
+/* ------------------------------------ */
+
+.menu-item.hide-window {
+    font-size: 60px;
+    background-color: #e95959;
+}
+
+.menu-item.move-window {
+    background-color: #7fb0f9;
+}
+
+.menu-item.minimize-window {
+    background-color: #75d589;
+    font-size: 50px;
+    padding-top: 9px;
+    padding-right: 9px;
+    letter-spacing: -3px;
+}
+
+.menu-item.shut-down {
+    background-color: #404040;
+    font-size: 50px;
+}
+
+.menu-item svg {
+    display: block;
+    margin: auto;
 }
