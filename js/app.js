@@ -93,8 +93,16 @@ emojione.shortnameToUnicode_ = (text) =>
         Notif.show(`📋 Copied <code>${text}</code> ${emojione.shortnameToUnicode_(text)}`)
     }
 
+    function handleKeydown(e) {
+        if ((['TEXTAREA', 'INPUT']).indexOf(e.target.nodeName) != -1) {
+            return
+        }
+        search.focus()
+    }
+
     Clipboard.init()
     search.addEventListener('input', updateEmojis)
+    document.body.addEventListener('keydown', handleKeydown)
     document.body.addEventListener('dblclick', handleCopyToClipboard)
 
     renderEmojis(all_emojis)
