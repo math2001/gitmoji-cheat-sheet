@@ -4,6 +4,11 @@ header {
     position: relative;
     height: var(--header-height);
     line-height: var(--header-height);
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+header.shadow {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
 h1 {
