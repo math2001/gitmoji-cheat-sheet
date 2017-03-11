@@ -1,3 +1,13 @@
+.emoji-wrapper {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: var(--header-height);
+    max-height: calc(100% - var(--header-height));
+    position: absolute;
+    overflow: auto;
+}
+
 .emojis {
     border: 1px solid #aaa;
     border-collapse: collapse;
