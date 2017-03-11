@@ -1,0 +1,12 @@
+{
+  "name": "gitmoji-cheat-sheet",
+  "version": "0.1.0",
+  "description": "A gitmoji cheat sheet for commit message",
+  "main": "index.js",
+  "repository": "https://github.com/math2001/gitmoji-cheat-sheet",
+  "author": "math2001",
+  "license": "MIT",
+  "dependencies": {
+    "format-string": "^1.0.0"
+  }
+}

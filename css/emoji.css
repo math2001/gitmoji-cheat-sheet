@@ -1,0 +1,35 @@
+.emojis {
+    border: 1px solid #aaa;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.emoji {
+    cursor: pointer;
+    border-bottom: 1px solid #aaa;
+    background-color: rgba(255, 255, 255, 0.3);
+    transition: all .1s;
+}
+
+.emoji:hover {
+    background-color: white;
+    box-shadow: 10px 10px 10px rgba(168, 182, 191, 0.6);
+}
+
+.emoji-emoji {
+    font-size: 10vw;
+}
+
+.emoji-code {
+    font-size: 75%;
+}
+
+.emoji td {
+    /*border: 1px solid #aaa;*/
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.emoji-description {
+    color: #888;
+}
