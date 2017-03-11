@@ -28,6 +28,10 @@
 
 .emoji-emoji {
     font-size: 10vw;
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 18vw;
+    text-align: center;
 }
 
 .emoji-keyword {
@@ -43,8 +47,7 @@
 }
 
 .emoji td {
-    /*border: 1px solid #aaa;*/
-    padding: 10px;
+    padding: 10px 0;
     margin: 10px 0;
 }
 
