@@ -10,9 +10,12 @@ h1 {
     top: 0;
     opacity: 1;
     margin: 0;
-    position: relative;
+    position: absolute;
     transition: all .2s;
     font-size: 10vw;
+    display: inline-block;
+    right: 50%;
+    transform: translateX(50%);
 }
 
 .header-search {
@@ -44,6 +47,8 @@ h1 {
 }
 .header-search:focus + h1,
 .header-search:valid + h1 {
-    top: -60px;
-    opacity: 0;
+    top: -20px;
+    font-size: 20px;
+    right: 15px;
+    transform: translateX(0%);
 }
