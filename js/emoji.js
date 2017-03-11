@@ -82,6 +82,9 @@ class Emoji {
             node = node.parentNode
             i++
         }
+        if (text == null) {
+            return
+        }
         e.preventDefault()
         e.stopImmediatePropagation()
         this.copyEmojiAlias(text)
