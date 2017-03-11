@@ -1,0 +1,14 @@
+.action {
+    z-index: 100;
+    position: absolute;
+    color: white;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.drag-window {
+    -webkit-app-region: drag;
+    top: 10px;
+    left: 10px;
+}

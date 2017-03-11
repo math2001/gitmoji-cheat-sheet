@@ -14,6 +14,7 @@ function main() {
             width: 300,
             height: 500,
             show: false,
+            frame: false
         })
 
         mainWindow.loadURL(`file://${__dirname}/index.html`)
