@@ -1,6 +1,7 @@
 "use strict";
 
 const fs = require('fs')
+const {arr} = require('./functions.js')
 
 class Emoji {
 
@@ -25,7 +26,50 @@ class Emoji {
         this.render(this.everyEmojis.filter((element, index) => indexes.includes(index)))
     }
 
+    static moveHighlight (way) {
+        const scrollTo = (element) => {
+           element.scrollIntoViewIfNeeded()
+        }
+        const emojis = arr(this.emojis.querySelectorAll('.emoji'))
+        let highlighted = null;
+        if (emojis.some((emoji, index) => {
+            if (emoji.classList.contains('highlighted')) {
+                emoji.classList.remove('highlighted')
+                if (index+way <= 0 && way < 0) {
+                    index = emojis.length
+                }
+                if (index + way >= emojis.length && way > 0) {
+                    index = 0
+                }
+                highlighted = emojis[index+way]
+                highlighted.classList.add('highlighted')
+                scrollTo(highlighted)
+                return true
+            }
+        })) {
+            return
+        }
+
+        if (way >= 0) {
+            highlighted = emojis[0]
+            highlighted.classList.add('highlighted')
+            scrollTo(highlighted)
+        } else {
+            highlighted = emojis.slice(-1)
+            highlighted.classList.add('highlighted')
+            scrollTo(highlighted)
+        }
+    }
+
     static handleKeydown(e) {
+        if (e.target == this.search) {
+            if (e.keyCode == 38) {
+                this.moveHighlight(-1)
+            } else if (e.keyCode == 40) {
+                this.moveHighlight(1)
+            }
+            return
+        }
         if ((['TEXTAREA', 'INPUT']).indexOf(e.target.nodeName) != -1) {
             return
         }

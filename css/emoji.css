@@ -21,7 +21,8 @@
     transition: all .1s;
 }
 
-.emoji:hover {
+.emoji:hover,
+.emoji.highlighted {
     background-color: white;
     box-shadow: 10px 10px 10px rgba(168, 182, 191, 0.6);
 }
