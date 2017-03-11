@@ -2,6 +2,7 @@
 
 const emojione = require('./js/emojione.min')
 const fuzzySearch = require('./js/fuzzy-search')
+const Clipboard = require('./js/clipboard')
 
 ;(function () {
 
@@ -76,7 +77,20 @@ const fuzzySearch = require('./js/fuzzy-search')
         renderEmojis(all_emojis.filter((element, index) => indexes.includes(index)))
     }
 
+    function handleCopyToClipboard(e) {
+        window.e = e
+        let node = e.target, text = null, i = 0
+        while ((text = node.getAttribute('data-clipboard')) === null && node.nodeName != 'BODY' && i < 5) {
+            node = node.parentNode
+            i++
+        }
+        Clipboard.copy(text)
+
+    }
+
+    Clipboard.init()
     search.addEventListener('input', updateEmojis)
+    document.body.addEventListener('contextmenu', handleCopyToClipboard)
 
     renderEmojis(all_emojis)
 
