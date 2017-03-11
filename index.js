@@ -43,6 +43,9 @@ function main() {
         mainWindow.hide()
     })
 
+    ipc.on('shut-down', () => {
+        app.quit()
+    })
 
 }
 

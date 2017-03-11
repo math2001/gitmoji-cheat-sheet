@@ -19,10 +19,15 @@ class Menu {
         ipc.send('hide-window')
     }
 
+    static shutDown() {
+        ipc.send('shut-down')
+    }
+
     static bindDOM() {
         this.mainBtn.addEventListener('click', this.expandMenu.bind(this))
         this.menu.querySelector('.hide-window').addEventListener('click', this.hideWindow)
         this.menu.querySelector('.minimize-window').addEventListener('click', this.minimizeWindow)
+        this.menu.querySelector('.shut-down').addEventListener('click', this.shutDown)
     }
 
 }
