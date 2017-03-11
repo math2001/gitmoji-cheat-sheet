@@ -45,5 +45,5 @@ class ScrollListener {
         }
     })
 
-    document.querySelector('#hide-window').addEventListener('click', handleHideWindow)
+    document.querySelector('.hide-window').addEventListener('click', handleHideWindow)
 })()

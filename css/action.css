@@ -1,4 +1,4 @@
-.action {
+/*.action {
     z-index: 100;
     position: absolute;
     color: #eee;
@@ -12,7 +12,7 @@
     color: white;
 }
 
-.drag-window {
+.move-window {
     -webkit-app-region: drag;
     top: 40px;
     left: 10px;
@@ -27,4 +27,73 @@
 
 .hide-window:hover {
     color: #ee7c7c;
+}*/
+
+/* ------------------------------ */
+/* ------------ menu ------------ */
+/* ------------------------------ */
+
+.menu {
+    position: absolute;
+    z-index: 150;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    display: block;
+
+    --item-size: 50px;
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+}
+
+.menu-item {
+    background: rgba(255, 0, 0, 0.5);
+    border: none;
+    width: var(--item-size);
+    height: var(--item-size);
+    border-radius: 100%;
+    text-align: center;
+    line-height: var(--item-size);
+    color: white;
+    position: absolute;
+    display: block;
+    z-index: 155;
+}
+
+.menu-main {
+    background-color: rgba(102, 153, 204, 0.5);
+    z-index: 160;
+}
+
+.menu-main,
+.menu-item {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu.expanded .menu-item.shut-down {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu.expanded .menu-item.minimize-window {
+    left: 100%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+}
+
+.menu.expanded .menu-item.move-window {
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+
+.menu.expanded .menu-item.hide-window {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
 }
