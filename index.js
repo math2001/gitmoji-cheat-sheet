@@ -1,7 +1,7 @@
 "use strict"
 
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const {app, BrowserWindow, ipcMain: ipc, globalShortcut} = electron
 const fs = require('fs')
 
 function main() {
@@ -27,6 +27,10 @@ function main() {
             mainWindow = null
         })
 
+        globalShortcut.register('CmdOrCtrl+Shift+E', function () {
+            mainWindow.show()
+        })
+
     }
 
     app.on('ready', createWindow)
@@ -34,6 +38,12 @@ function main() {
     app.on('window-all-closed', () => {
         app.quit();
     })
+
+    ipc.on('hide-window', () => {
+        mainWindow.hide()
+    })
+
+
 }
 
 main()

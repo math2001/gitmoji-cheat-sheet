@@ -8,12 +8,23 @@
     transition: all .1s;
 }
 
+.action:hover {
+    color: white;
+}
+
 .drag-window {
     -webkit-app-region: drag;
-    top: 10px;
+    top: 40px;
     left: 10px;
 }
 
-.action:hover {
-    color: white;
+.hide-window {
+    top: -5px;
+    left: 8px;
+    font-size: 50px;
+    color: #e95959;
+}
+
+.hide-window:hover {
+    color: #ee7c7c;
 }

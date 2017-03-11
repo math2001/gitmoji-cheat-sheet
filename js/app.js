@@ -5,6 +5,7 @@ const fuzzySearch = require('./js/fuzzy-search')
 const Clipboard = require('./js/clipboard')
 const Notif = require('./js/notif')
 const Emoji = require('./js/emoji')
+const {ipcRenderer: ipc} = require('electron')
 
 emojione.shortnameToUnicode_ = (text) =>
     emojione.shortnameToUnicode(text).replace(':memo:', '📝')
@@ -32,6 +33,10 @@ class ScrollListener {
 
     const header = document.querySelector('header')
 
+    function handleHideWindow() {
+        ipc.send('hide-window')
+    }
+
     new ScrollListener(Emoji.emojis.parentNode, function (e) {
         if (this.scrollTop > 0) {
             header.classList.add('shadow')
@@ -39,4 +44,6 @@ class ScrollListener {
             header.classList.remove('shadow')
         }
     })
+
+    document.querySelector('#hide-window').addEventListener('click', handleHideWindow)
 })()
