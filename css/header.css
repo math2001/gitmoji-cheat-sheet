@@ -57,3 +57,10 @@ h1 {
     right: 15px;
     transform: translateX(0%);
 }
+
+.move-window {
+    -webkit-app-region: drag;
+    position: relative;
+    left: 5px;
+    top: 5px;
+}
