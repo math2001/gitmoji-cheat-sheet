@@ -14,7 +14,8 @@ function main() {
             width: 350,
             height: 550,
             show: false,
-            frame: false
+            frame: false,
+            icon: `${__dirname}/imgs/gitmoji.ico`
         })
 
         mainWindow.loadURL(`file://${__dirname}/index.html`)
