@@ -1,10 +1,14 @@
  ☐ add tooltip (maybe in a status bar)
  ☐ add pertinence to fuzzy search
- ☐ add icon in tool bar
  ☐ apply setting without saving (temp-settings.json) @low
- ☐ save position/size of window
+ ☐ save settings on enter
+ ☐ add option to auto save position
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ add icon in tool bar @done Mon 13 Mar 2017 at 07:49
+ ✔ add button in settings: fill with current values @done Mon 13 Mar 2017 at 07:49
+ ✔ save position/size of window @done Mon 13 Mar 2017 at 07:49
+ ✔ use remote @done Mon 13 Mar 2017 at 07:49
  ✔ stay on the top @done Sun 12 Mar 2017 at 16:40
  ✔ let user know to press ctrl+shift+e @done Sun 12 Mar 2017 at 16:40
  ✔ let the user choose the shortcut @done Sun 12 Mar 2017 at 16:40

@@ -14,7 +14,9 @@ class Settings {
             'showWindowShortcut': 'CmdOrCtrl+shift+e',
             'windowPosCenter': true,
             'windowWidth': 350,
-            'windowHeight': 550
+            'windowHeight': 550,
+            'windowX': 50,
+            'windowY': 50,
         }
         this.settings = this.defaultSettings.extend(this.loadSettings())
     }
@@ -29,12 +31,11 @@ class Settings {
     }
 
 
-    static saveAndApply(settings) {
+    static save(settings) {
         // save the settings to the settings file
-        // and apply it
 
         this.settings = this.defaultSettings.extend(settings)
-        writeFileSync(this.SETTINGS_FILE, JSON.stringify(settings))
+        writeFileSync(this.SETTINGS_FILE, JSON.stringify(settings, null, ' '.repeat(4)))
 
     }
 

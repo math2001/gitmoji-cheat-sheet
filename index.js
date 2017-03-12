@@ -14,6 +14,8 @@ function main() {
         mainWindow = new BrowserWindow({
             width: Settings.settings.windowWidth,
             height: Settings.settings.windowHeight,
+            x: Settings.settings.windowX,
+            y: Settings.settings.windowY,
             show: false,
             frame: false,
             icon: `${__dirname}/imgs/gitmoji.ico`,
@@ -61,14 +63,12 @@ function main() {
     })
 
     ipc.on('get-settings', (e) => {
-        e.sender.send('settings', Settings.settings)
+        e.sender.send('settings-reloaded', Settings.settings)
     })
 
-    ipc.on('save-and-apply-settings', (e, settings) => {
-        Settings.saveAndApply(settings)
-        let previousWindow = mainWindow
-        createWindow()
-        previousWindow.close()
+    ipc.on('save-settings', (e, settings) => {
+        Settings.save(settings)
+        e.sender.send('settings-reloaded', Settings.settings)
     })
 
 }

@@ -51,11 +51,16 @@
 
 .settings input[type=number] {
     display: inline-block;
-    width: 80px;
+    width: 55px;
     background: none;
     font-family: var(--mono-fonts);
     border: none;
     background-color: #eee;
     padding: 8px 5px;
     border-radius: 5px;
+}
+
+.settings input[type=number]:disabled {
+    background-color: #f5f5f5;
+    color: #999;
 }

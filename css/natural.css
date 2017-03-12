@@ -76,6 +76,7 @@ h1, h2, h3 {
   font-size: 100%;
   cursor: pointer;
   box-shadow: 1px 1px 2px -1px #aaa;
+  vertical-align: middle;
 }
 
 .btn:hover {
@@ -86,6 +87,11 @@ h1, h2, h3 {
 .btn.primary {
   background-color: var(--blue);
   color: #eee;
+}
+
+.btn.small {
+  font-size: 75%;
+  padding: 5px;
 }
 
 .btn.primary:hover {
