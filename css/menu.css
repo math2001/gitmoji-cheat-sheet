@@ -77,7 +77,7 @@
     transform: translate(-100%, -50%);
 }
 
-.menu.expanded .menu-item.settings {
+.menu.expanded .menu-item.show-setting-window {
     top: 100%;
     left: 50%;
     transform: translate(-50%, -100%);
@@ -99,7 +99,7 @@
     background-color: #e95959;
 }
 
-.menu-item.settings {
+.menu-item.show-setting-window {
     background-color: #7fb0f9;
     font-size: 35px;
 }

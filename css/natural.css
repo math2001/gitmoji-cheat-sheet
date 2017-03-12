@@ -99,7 +99,7 @@ input[type=checkbox] {
   --animation-duration: .2s;
 }
 
-.track {
+.checkbox-track {
   position: relative;
   display: block;
   width: 30px;
@@ -109,7 +109,7 @@ input[type=checkbox] {
   border: 1px solid #ddd;
 }
 
-.handle {
+.checkbox-handle {
   position: absolute;
   height: 22px;
   width: 22px;
@@ -122,8 +122,8 @@ input[type=checkbox] {
   transition: all var(--animation-duration);
 }
 
-.track::before,
-.track::after {
+.checkbox-track::before,
+.checkbox-track::after {
   text-align: center;
   position: absolute;
   display: block;
@@ -133,11 +133,11 @@ input[type=checkbox] {
   border-radius: 20px;
 }
 
-.track::after {
+.checkbox-track::after {
   content: "";
 }
 
-.track::before {
+.checkbox-track::before {
   content: "";
   color: white;
   transform: translateX(-100%);
@@ -152,6 +152,6 @@ input[type=checkbox]:checked + .checkbox .track::before {
   transform: translateX(0);
 }
 
-input[type=checkbox]:checked + .checkbox .handle {
+input[type=checkbox]:checked + .checkbox .checkbox-handle {
   left: 100%;
 }
