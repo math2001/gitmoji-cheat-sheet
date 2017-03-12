@@ -33,7 +33,6 @@ function main() {
         Settings.init()
 
         createWindow()
-
         globalShortcut.register(Settings.settings.showWindowShortcut, function () {
             mainWindow.show()
         })

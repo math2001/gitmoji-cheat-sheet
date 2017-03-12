@@ -1,6 +1,6 @@
 "use strict";
 
-const {ipcRenderer: ipc} = require('electron')
+const {ipcRenderer: ipc, shell} = require('electron')
 
 const emojione = require('./js/emojione.min')
 
@@ -14,7 +14,7 @@ const Menu = require('./js/menu')
 const Settings = require('./js/settings')
 
 emojione.shortnameToUnicode_ = (text) =>
-    emojione.shortnameToUnicode(text).replace(':memo:', '📝')
+emojione.shortnameToUnicode(text).replace(':memo:', '📝')
 
 class ScrollListener {
     constructor(el, fn) {
@@ -50,6 +50,13 @@ class ScrollListener {
             header.classList.add('shadow')
         } else {
             header.classList.remove('shadow')
+        }
+    })
+
+    document.body.addEventListener('click', function (e) {
+        if (e.target.nodeName == 'A' && e.target.getAttribute('target') == 'browser' && e.target.href) {
+            e.preventDefault()
+            shell.openExternal(e.target.href)
         }
     })
 
