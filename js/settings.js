@@ -58,7 +58,6 @@ class Settings {
             let settings = this.get()
             this.settings = settings
             this.save(settings)
-            this.apply(settings)
         })
 
         this.windowPosCenter.addEventListener('change', (e) => {
