@@ -41,7 +41,7 @@ class Settings {
 
     static render(settings) {
         // render the settings on the page (called at initialization)
-        this.alwaysOnTop.value = settings.alwaysOnTop
+        this.alwaysOnTop.checked = settings.alwaysOnTop
         this.showWindowShortcut.value = settings.showWindowShortcut
     }
 
