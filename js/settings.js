@@ -42,6 +42,7 @@ class Settings {
 
         this.cancelBtn.addEventListener('click', () => {
             this.render(this.settings)
+            this.settingsWindow.classList.remove('active')
         })
 
         this.saveBtn.addEventListener('click', () => {
