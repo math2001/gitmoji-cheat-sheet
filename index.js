@@ -10,10 +10,7 @@ function main() {
 
     let mainWindow
 
-    function init() {
-
-        Settings.init()
-
+    function createWindow() {
         mainWindow = new BrowserWindow({
             width: 350,
             height: 550,
@@ -25,13 +22,16 @@ function main() {
 
         mainWindow.loadURL(`file://${__dirname}/index.html`)
 
-        mainWindow.on('ready-to-show', () => {
-            mainWindow.show()
+        mainWindow.on('ready-to-show', function () {
+            this.show()
         })
+    }
 
-        mainWindow.on('closed', function () {
-            mainWindow = null
-        })
+    function init() {
+
+        Settings.init()
+
+        createWindow()
 
         globalShortcut.register(Settings.settings.showWindowShortcut, function () {
             mainWindow.show()
@@ -61,6 +61,9 @@ function main() {
 
     ipc.on('save-and-apply-settings', (e, settings) => {
         Settings.saveAndApply(settings)
+        let previousWindow = mainWindow
+        createWindow()
+        previousWindow.close()
     })
 
 }
