@@ -8,4 +8,22 @@ function arr(iterable) {
     return arr
 }
 
+function objectAddExtend() {
+
+    Object.prototype.extend = function(object) {
+        let newObject = {}
+        Object.keys(this).some((key) => {
+            newObject[key] = this[key]
+        })
+        Object.keys(object).some((key) => {
+            if (typeof object[key] != 'undefined') {
+                newObject[key] = object[key]
+            }
+            return false
+        })
+        return newObject
+    }
+}
+
 exports.arr = arr
+exports.objectAddExtend = objectAddExtend
