@@ -87,6 +87,7 @@ class Emoji {
         }
         e.preventDefault()
         e.stopImmediatePropagation()
+        e.stopPropagation()
         this.copyEmojiAlias(text)
     }
 
@@ -98,7 +99,7 @@ class Emoji {
     static bindDOM() {
         this.search.addEventListener('input', this.handleInput.bind(this))
         document.body.addEventListener('keydown', this.handleKeydown.bind(this))
-        document.body.addEventListener('dblclick', this.handleCopyToClipboard.bind(this))
+        document.body.addEventListener('click', this.handleCopyToClipboard.bind(this))
     }
 
     static render(emojis) {
