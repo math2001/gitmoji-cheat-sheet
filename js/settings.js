@@ -9,6 +9,7 @@ class Settings {
         this.settingsWindow = document.querySelector('#settings-window')
         this.closeSettingsWindow = document.querySelector('#close-settings-window')
         this.saveBtn = document.querySelector('#settings-save')
+        this.cancelBtn = document.querySelector('#settings-cancel')
 
         this.alwaysOnTop = document.querySelector('#always-on-top')
         this.showWindowShortcut = document.querySelector('#show-window-shortcut')
@@ -24,6 +25,7 @@ class Settings {
         })
 
         ipc.on('settings', (event, settings) => {
+            this.settings = settings
             this.render(settings)
         })
 
@@ -34,6 +36,11 @@ class Settings {
         this.closeSettingsWindow.addEventListener('click', () => {
             this.settingsWindow.classList.remove('active')
         })
+
+        this.cancelBtn.addEventListener('click', () => {
+            this.render(this.settings)
+        })
+
         this.saveBtn.addEventListener('click', () => {
             ipc.send('save-and-apply-settings', this.get())
         })
