@@ -1,14 +1,14 @@
 "use strict"
 
 const electron = require('electron')
-const {app, BrowserWindow, ipcMain: ipc, globalShortcut} = electron
+const {app, BrowserWindow, ipcMain: ipc, globalShortcut, Tray} = electron
 const fs = require('fs')
 
 const Settings = require('./js-server/settings')
 
 function main() {
 
-    let mainWindow
+    let mainWindow, tray
 
     function createWindow() {
         mainWindow = new BrowserWindow({
@@ -37,6 +37,11 @@ function main() {
             mainWindow.show()
         })
 
+        tray = new Tray('imgs/gitmoji.ico')
+        tray.setToolTip("Gitmoji cheat sheet")
+        tray.on('click', () => {
+            mainWindow.show()
+        })
     }
 
     app.on('ready', init)

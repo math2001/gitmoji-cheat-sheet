@@ -1,11 +1,12 @@
- ☐ stay on the top
  ☐ add tooltip (maybe in a status bar)
  ☐ add pertinence to fuzzy search
- ☐ let user know to press ctrl+shift+e
  ☐ add icon in tool bar
- ☐ let the user choose the shortcut
+ ☐ apply setting without saving (temp-settings.json) @low
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ stay on the top @done Sun 12 Mar 2017 at 16:40
+ ✔ let user know to press ctrl+shift+e @done Sun 12 Mar 2017 at 16:40
+ ✔ let the user choose the shortcut @done Sun 12 Mar 2017 at 16:40
  ✔ set window icon @done Sun 12 Mar 2017 at 09:37
  ✔ fix style → search critical @done Sun 12 Mar 2017 at 08:56
  ✔ copy on enter @done Sun 12 Mar 2017 at 08:27
