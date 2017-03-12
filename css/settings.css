@@ -51,7 +51,7 @@
 
 .settings input[type=number] {
     display: inline-block;
-    width: 55px;
+    width: 50px;
     background: none;
     font-family: var(--mono-fonts);
     border: none;
