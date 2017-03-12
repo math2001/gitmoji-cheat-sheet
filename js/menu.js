@@ -16,6 +16,7 @@ class Menu {
     }
 
     static hideWindow() {
+        this.toggleMenu()
         ipc.send('hide-window')
     }
 
@@ -24,13 +25,13 @@ class Menu {
     }
 
     static showSettingsWindow() {
-        EM.emit('show-settings-window')
         this.toggleMenu()
+        EM.emit('show-settings-window')
     }
 
     static bindDOM() {
         this.mainBtn.addEventListener('click', this.toggleMenu.bind(this))
-        this.menu.querySelector('.hide-window').addEventListener('click', this.hideWindow)
+        this.menu.querySelector('.hide-window').addEventListener('click', this.hideWindow.bind(this))
         this.menu.querySelector('.minimize-window').addEventListener('click', this.minimizeWindow)
         this.menu.querySelector('.shut-down').addEventListener('click', this.shutDown)
         this.menu.querySelector('.show-settings-window').addEventListener('click', this.showSettingsWindow.bind(this))
