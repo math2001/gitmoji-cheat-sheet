@@ -12,18 +12,7 @@
     text-align: center;
     animation: pop .3s;
     cursor: pointer;
-}
-
-.notif::before {
-    bottom: 0;
-    /*content: "";*/
-    display: block;
-    filter: blur(4px);
-    /*background-color: rgba(255, 0, 0, 0.5);*/
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
+    z-index: 200;
 }
 
 .notif.fade {

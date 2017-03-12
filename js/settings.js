@@ -50,6 +50,9 @@ class Settings {
             updateSettings(settings)
         })
 
+        remote.getCurrentWindow().on('show', () => {
+            this.apply(this.settings)
+        })
 
     }
 
