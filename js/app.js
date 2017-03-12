@@ -7,6 +7,7 @@ const Clipboard = require('./js/clipboard')
 const Notif = require('./js/notif')
 const Emoji = require('./js/emoji')
 const Menu = require('./js/menu')
+const EM = require('./js/event-emitter')
 
 emojione.shortnameToUnicode_ = (text) =>
     emojione.shortnameToUnicode(text).replace(':memo:', '📝')

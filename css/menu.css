@@ -55,10 +55,6 @@
     opacity: .9
 }
 
-.menu.expanded .menu-main {
-    opacity: .7;
-}
-
 .menu-main:hover,
 .menu.expanded .menu-item:hover {
     opacity: 1;
@@ -77,7 +73,7 @@
     transform: translate(-100%, -50%);
 }
 
-.menu.expanded .menu-item.show-setting-window {
+.menu.expanded .menu-item.show-settings-window {
     top: 100%;
     left: 50%;
     transform: translate(-50%, -100%);
@@ -99,7 +95,7 @@
     background-color: #e95959;
 }
 
-.menu-item.show-setting-window {
+.menu-item.show-settings-window {
     background-color: #7fb0f9;
     font-size: 35px;
 }
