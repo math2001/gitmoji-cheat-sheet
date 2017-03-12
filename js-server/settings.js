@@ -11,7 +11,10 @@ class Settings {
         this.SETTINGS_FILE = `${__dirname}/../settings.json`
         this.defaultSettings = {
             'alwaysOnTop': false,
-            'showWindowShortcut': 'CmdOrCtrl+shift+e'
+            'showWindowShortcut': 'CmdOrCtrl+shift+e',
+            'windowPosCenter': true,
+            'windowWidth': 350,
+            'windowHeight': 550
         }
         this.settings = this.defaultSettings.extend(this.loadSettings())
     }
@@ -30,13 +33,12 @@ class Settings {
         // save the settings to the settings file
         // and apply it
 
-        this.settings = settings
+        this.settings = this.defaultSettings.extend(settings)
         writeFileSync(this.SETTINGS_FILE, JSON.stringify(settings))
 
     }
 
 
 }
-
 
 module.exports = Settings

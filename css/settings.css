@@ -15,7 +15,7 @@
 }
 
 .settings-window .container {
-    max-width: 400px;
+    max-width: 450px;
     margin: auto;
     padding: 10px;
 }
@@ -44,12 +44,18 @@
     border-bottom-color: var(--blue);
 }
 
-.setting td:first-child {
-    width: 100%;
-
-}
-
 .settings td:last-child {
     padding-right: 10px;
     text-align: center;
+}
+
+.settings input[type=number] {
+    display: inline-block;
+    width: 80px;
+    background: none;
+    font-family: var(--mono-fonts);
+    border: none;
+    background-color: #eee;
+    padding: 8px 5px;
+    border-radius: 5px;
 }

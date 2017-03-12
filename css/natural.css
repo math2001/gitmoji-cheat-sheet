@@ -110,8 +110,26 @@ input[type=checkbox] {
   display: inline-block;
   vertical-align: middle;
   position: relative;
+  margin: 0 10px;
 
   --animation-duration: .2s;
+}
+
+.checkbox::before {
+  content: attr(data-label);
+  display: block;
+  position: absolute;
+  font-family: var(--mono-fonts);
+  transform: translate(-50%, -50%);
+  font-size: 75%;
+  left: 50%;
+  opacity: 0;
+  transition: all .2s;
+}
+
+.checkbox:hover::before {
+  transform: translate(-50%, -140%);
+  opacity: 1;
 }
 
 .checkbox-track {

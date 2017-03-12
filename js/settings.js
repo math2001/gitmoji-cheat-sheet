@@ -11,8 +11,11 @@ class Settings {
         this.saveBtn = document.querySelector('#settings-save')
         this.cancelBtn = document.querySelector('#settings-cancel')
 
-        this.alwaysOnTop = document.querySelector('#always-on-top')
-        this.showWindowShortcut = document.querySelector('#show-window-shortcut')
+        this.alwaysOnTop = this.settingsWindow.querySelector('#always-on-top')
+        this.showWindowShortcut = this.settingsWindow.querySelector('#show-window-shortcut')
+        this.windowPosCenter = this.settingsWindow.querySelector('#window-pos-center')
+        this.windowWidth = this.settingsWindow.querySelector('#window-width')
+        this.windowHeight = this.settingsWindow.querySelector('#window-height')
 
         this.bindEvents()
         this.bindDom()
@@ -50,6 +53,10 @@ class Settings {
         // render the settings on the page (called at initialization)
         this.alwaysOnTop.checked = settings.alwaysOnTop
         this.showWindowShortcut.value = settings.showWindowShortcut
+
+        this.windowPosCenter.checked = settings.windowPosCenter
+        this.windowWidth.value = settings.windowWidth
+        this.windowHeight.value = settings.windowHeight
     }
 
     static get() {
@@ -58,7 +65,10 @@ class Settings {
 
         return {
             'alwaysOnTop': this.alwaysOnTop.checked,
-            'showWindowShortcut': this.showWindowShortcut.value
+            'showWindowShortcut': this.showWindowShortcut.value != '' ? this.windowWidth.value : undefined,
+            'windowPosCenter': this.windowPosCenter.checked,
+            'windowWidth': this.windowWidth.value != '' ? parseInt(this.windowWidth.value) : undefined,
+            'windowHeight': this.windowHeight.value != '' ? parseInt(this.windowHeight.value) : undefined,
         }
     }
 

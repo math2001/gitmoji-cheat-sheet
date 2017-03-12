@@ -12,12 +12,13 @@ function main() {
 
     function createWindow() {
         mainWindow = new BrowserWindow({
-            width: 350,
-            height: 550,
+            width: Settings.settings.windowWidth,
+            height: Settings.settings.windowHeight,
             show: false,
             frame: false,
             icon: `${__dirname}/imgs/gitmoji.ico`,
-            alwaysOnTop: Settings.settings.alwaysOnTop
+            alwaysOnTop: Settings.settings.alwaysOnTop,
+            center: Settings.settings.windowPosCenter
         })
 
         mainWindow.loadURL(`file://${__dirname}/index.html`)
