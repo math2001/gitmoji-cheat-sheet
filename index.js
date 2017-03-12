@@ -30,14 +30,17 @@ function main() {
         })
     }
 
+    function registerGlobalShortcut(shortcut) {
+        globalShortcut.register(shortcut, () => {mainWindow.show()})
+    }
+
     function init() {
 
         Settings.init()
 
         createWindow()
-        globalShortcut.register(Settings.settings.showWindowShortcut, function () {
-            mainWindow.show()
-        })
+
+        registerGlobalShortcut(Settings.settings.showWindowShortcut)
 
         tray = new Tray('imgs/gitmoji.ico')
         tray.setToolTip("Gitmoji cheat sheet")
@@ -63,11 +66,13 @@ function main() {
     })
 
     ipc.on('get-settings', (e) => {
-        e.sender.send('settings-reloaded', Settings.settings)
+        e.sender.send('send-settings', Settings.settings)
     })
 
     ipc.on('save-settings', (e, settings) => {
+        globalShortcut.unregister(Settings.settings.showWindowShortcut)
         Settings.save(settings)
+        registerGlobalShortcut(Settings.settings.showWindowShortcut)
         e.sender.send('settings-reloaded', Settings.settings)
     })
 

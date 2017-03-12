@@ -35,10 +35,19 @@ class Settings {
             this.settingsWindow.classList.add('active')
         })
 
-        ipc.on('settings-reloaded', (event, settings) => {
+        const updateSettings = (settings) => {
             this.settings = settings
             this.render(settings)
             this.apply(settings)
+        }
+
+        ipc.on('settings-reloaded', (event, settings) => {
+            updateSettings(settings)
+            Notif.show(' ⚙ ↺ and applied!')
+        })
+
+        ipc.on('send-settings', (event, settings) => {
+            updateSettings(settings)
         })
 
 
