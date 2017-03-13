@@ -57,6 +57,7 @@ h1, h2, h3 {
 .signature {
   color: #888;
   text-align: center;
+  margin: 0 0 10px 0;
 }
 
 .signature a {
