@@ -120,7 +120,6 @@ h1, h2, h3 {
   transform: translate(-50%, -100%);
   top: -5px;
   color: #555;
-  /*transition: top 2s;*/
   transition-duration: .2s;
   opacity: 0;
 }
@@ -133,6 +132,12 @@ h1, h2, h3 {
 .btn[data-label][data-label-down]:hover::before {
   top: 105%;
   opacity: 1;
+}
+
+.btn svg {
+  height: 22px;
+  width: 22px;
+  vertical-align: middle;
 }
 
 /* ---------------------------------- */
