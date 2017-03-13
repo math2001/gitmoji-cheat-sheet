@@ -43,6 +43,11 @@ h1, h2, h3 {
   filter: grayscale(0);
 }
 
+.horizontal-flip {
+  transform: rotate(.5turn);
+  display: inline-block;
+}
+
 .msg {
   text-align: center;
   color: #a3a3a5;
@@ -66,6 +71,11 @@ h1, h2, h3 {
   text-align: right;
 }
 
+.left {
+  position: absolute;
+  left: 5px;
+}
+
 .btn {
   background: #e5e5e5;
   padding: 5px 10px;
@@ -77,6 +87,7 @@ h1, h2, h3 {
   cursor: pointer;
   box-shadow: 1px 1px 2px -1px #aaa;
   vertical-align: middle;
+  position: relative;
 }
 
 .btn:hover {
@@ -97,6 +108,31 @@ h1, h2, h3 {
 .btn.primary:hover {
   color: white;
   background-color: var(--light-blue);
+}
+
+.btn[data-label]::before {
+  content: attr(data-label);
+  position: absolute;
+  display: block;
+  font-family: var(--mono-fonts);
+  font-size: 75%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  top: -5px;
+  color: #555;
+  /*transition: top 2s;*/
+  transition-duration: .2s;
+  opacity: 0;
+}
+
+.btn[data-label][data-label-down]::before {
+  top: 50%;
+  transform: translate(-50%, 0);
+}
+
+.btn[data-label][data-label-down]:hover::before {
+  top: 105%;
+  opacity: 1;
 }
 
 /* ---------------------------------- */

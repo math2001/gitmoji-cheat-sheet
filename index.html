@@ -30,7 +30,14 @@
 </ul>
 
 <div id="settings-window" class="settings-window active">
-    <h3>Settings <span class="close" id="close-settings-window">&times;</span></h3>
+    <h3>
+        <span class="left">
+            <button class="btn left" id="settings-cancel" data-label="Cancel" data-label-down>&larr;</button>
+            <button class="btn primary left" id="settings-save" data-label="Save&nbsp;& apply" data-label-down>💾</button>
+        </span>
+        Settings
+        <span class="close" id="close-settings-window">&times;</span>
+    </h3>
     <div class="container">
         <table class="settings">
             <tr class="setting">
@@ -70,8 +77,8 @@
             </tr>
         </table>
         <p class="text-right" style="padding-right: 5px;">
-            <button class="btn" id="settings-cancel">Cancel</button>
-            <button class="btn primary" id="settings-save">Save &amp; Apply</button>
+            <!-- <button class="btn" id="settings-cancel">Cancel</button> -->
+            <!-- <button class="btn primary" id="settings-save">Save &amp; Apply</button> -->
         </p>
     </div>
     <p class="signature">Made with ❤ by <a href="https://github.com/math2001" target="browser">@math2001</a></p>
