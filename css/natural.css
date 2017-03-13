@@ -10,8 +10,11 @@ html {
   font-family: var(--fonts);
   --header-height: 75px;
 
-  --blue: #5366bf;
-  --light-blue: #5d6ec3;
+  --dark-blue: #5366bf;
+  --dark-lighter-blue: #5d6ec3;
+
+  --blue: #5baeef;
+  --red: #e74c3c;
 }
 
 body {
@@ -34,14 +37,10 @@ h1, h2, h3 {
   font-size: 35px;
   top: -50%;
   cursor: pointer;
-  color: #e95959;
+  color: var(--red);
   transition: all .2s;
-  filter: grayscale(20%);
 }
 
-.close:hover {
-  filter: grayscale(0);
-}
 
 .horizontal-flip {
   transform: rotate(.5turn);
