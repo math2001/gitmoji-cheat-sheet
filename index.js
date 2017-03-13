@@ -42,7 +42,7 @@ function main() {
 
         registerGlobalShortcut(Settings.settings.showWindowShortcut)
 
-        tray = new Tray('imgs/gitmoji.ico')
+        tray = new Tray(`${__dirname}/imgs/gitmoji.ico`)
         tray.setToolTip("Gitmoji cheat sheet")
         tray.on('click', () => {
             mainWindow.show()
