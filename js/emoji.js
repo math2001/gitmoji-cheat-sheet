@@ -23,6 +23,7 @@ class Emoji {
 
     static handleInput(e) {
         const indexes = this.fz.search(e.target.value, 'only indexes')
+        console.log(this.fz.search(e.target.value));
         const emojis = []
         Object.keys(indexes).sort().some((score) => {
             indexes[score].some((emojiIndex) => {
@@ -30,9 +31,16 @@ class Emoji {
             })
         })
         this.render(emojis.reverse())
+        this.moveHighlight()
     }
 
-    static moveHighlight (way) {
+    static moveHighlight(way) {
+        if (way === undefined) {
+            const emoji = document.querySelector('.emoji')
+            if (emoji == null) return
+            return emoji.classList.add('highlighted')
+        }
+
         const emojis = arr(this.emojis.querySelectorAll('.emoji'))
 
         if (emojis.length == 0) {
@@ -114,13 +122,12 @@ class Emoji {
             return
         }
         let html = '';
-        emojis.forEach(function (infos, index) {
+        emojis.forEach(function (infos) {
             let [alias, usage, keywords] = infos
             keywords = keywords != '' ? `<code class="emoji-keyword">${keywords}</code>` : ''
-            let emoji = emojione.shortnameToUnicode_(`:${alias}:`),
-                highlighted = index == 0 ? ' highlighted' : ''
+            let emoji = emojione.shortnameToUnicode_(`:${alias}:`)
 
-            html += `<tr class="emoji${highlighted}" data-clipboard=":${alias}:">
+            html += `<tr class="emoji" data-clipboard=":${alias}:">
                        <td class="emoji-emoji">${emoji}</td>
                        <td class="emoji-description">${usage}${keywords}</td>
                      </tr>`
