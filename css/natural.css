@@ -10,10 +10,11 @@ html {
   font-family: var(--fonts);
   --header-height: 75px;
 
-  --dark-blue: #5366bf;
-  --dark-lighter-blue: #5d6ec3;
+  --dark-blue: #5366BF;
+  --dark-lighter-blue: #5D6EC3;
 
-  --blue: #5baeef;
+  --blue: #5BAEEF;
+  --light-blue: #73BAF1;
   --red: #e74c3c;
 }
 
@@ -200,6 +201,10 @@ input[type=checkbox] {
   border: 2px solid #aaa;
   transform: translateX(-50%);
   transition: all var(--animation-duration);
+}
+
+input[type=checkbox]:checked + .checkbox .checkbox-handle {
+  border-color: var(--blue);
 }
 
 .checkbox-track::before,
