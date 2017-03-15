@@ -23,7 +23,6 @@ class Emoji {
 
     static handleInput(e) {
         const indexes = this.fz.search(e.target.value, 'only indexes')
-        console.log(this.fz.search(e.target.value));
         const emojis = []
         Object.keys(indexes).sort().some((score) => {
             indexes[score].some((emojiIndex) => {

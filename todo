@@ -8,6 +8,7 @@
 
 Fuzzy Search:
   ☐ take into consideration the case @hard
+  ☐ highlight matches @hard because of description
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
  ✔ add pertinence to fuzzy search @done Wed 15 Mar 2017 at 19:10
