@@ -1,11 +1,11 @@
 [
     ["art",                       "Improving structure / format of the code.",  ""],
     ["zap",                       "Improving performance.",                     "perfs"],
-    ["fire",                      "Removing code or files.",                    "-"],
+    ["fire",                      "Removing code or files.",                    "- delete"],
     ["bug",                       "Fixing a bug.",                              ""],
     ["ambulance",                 "Critical hotfix.",                           "urgent"],
     ["sparkles",                  "Introducing new features.",                  "+"],
-    ["memo",                      "Writing docs.",                              "comment"],
+    ["memo",                      "Writing docs.",                              ""],
     ["rocket",                    "Deploying stuff.",                           ""],
     ["lipstick",                  "Updating the UI and style files.",           "css"],
     ["tada",                      "Initial commit.",                            ""],
@@ -39,5 +39,6 @@
     ["boom",                      "Introducing breaking changes.",              "non compatible"],
     ["bento",                     "Adding or updating assets.",                 "image sound"],
     ["ok_hand",                   "Updating code due to code review changes.",  ""],
-    ["wheelchair",                "Improving accessibility.",                   "altruist"]
+    ["wheelchair",                "Improving accessibility.",                   "altruist"],
+    ["bulb",                      "Documenting source code.",                   "comments"]
 ]
