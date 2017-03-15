@@ -24,35 +24,30 @@
 }
 
 .menu-item {
-    border: none;
-    width: var(--item-size);
-    height: var(--item-size);
     border-radius: 100%;
-    text-align: center;
-    line-height: var(--item-size);
+    border: none;
     color: white;
-    position: absolute;
+    cursor: pointer;
     display: block;
-    box-shadow: 0 0 10px #aaa;
+    height: var(--item-size);
+    left: 50%;
+    line-height: var(--item-size);
+    opacity: .7;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all var(--animation-duration);
+    width: var(--item-size);
     z-index: 155;
 }
 
-.menu-main,
-.menu-item {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    transition: all var(--animation-duration);
-    opacity: .7;
-}
-
-
 .menu-main {
+    transform: translate(-50%, -50%);
     background-image: url(./../imgs/gitmoji.png);
     background-size: 100%;
     z-index: 160;
-    opacity: .9
+    opacity: 1;
 }
 
 .menu-main:hover,

@@ -1,11 +1,11 @@
 header {
-    background-color: var(--blue);
-    color: white;
+    background-color: var(--yellow);
+    color: black;
     position: relative;
     height: var(--header-height);
     line-height: var(--header-height);
     z-index: 10;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
 }
 
 header.shadow {
@@ -26,7 +26,6 @@ h1 {
 
 .header-search {
     background-color: transparent;
-    color: white;
     border: none;
     display: block;
     font-family: var(--fonts);
