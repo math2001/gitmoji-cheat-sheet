@@ -23,7 +23,13 @@ class Emoji {
 
     static handleInput(e) {
         const indexes = this.fz.search(e.target.value, 'only indexes')
-        this.render(this.everyEmojis.filter((element, index) => indexes.includes(index)))
+        const emojis = []
+        Object.keys(indexes).sort().some((score) => {
+            indexes[score].some((emojiIndex) => {
+                emojis.push(this.everyEmojis[emojiIndex])
+            })
+        })
+        this.render(emojis.reverse())
     }
 
     static moveHighlight (way) {

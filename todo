@@ -1,5 +1,4 @@
  ☐ add tooltip (maybe in a status bar) @maybe
- ☐ add pertinence to fuzzy search
  ☐ apply setting without saving (temp-settings.json) @low
  ☐ save settings on enter
  ☐ add option to auto save position
@@ -8,6 +7,7 @@
  ☐ global shortcut in instance (s for settings)
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ add pertinence to fuzzy search @done Wed 15 Mar 2017 at 19:10
  ✔ add icon in tool bar @done Mon 13 Mar 2017 at 07:49
  ✔ add button in settings: fill with current values @done Mon 13 Mar 2017 at 07:49
  ✔ save position/size of window @done Mon 13 Mar 2017 at 07:49

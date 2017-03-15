@@ -14,31 +14,39 @@ class FuzzySearch {
     }
 
     _match(pattern, string) {
-        var previousIndex = 0;
-        let failed = false
-        pattern.split('').forEach((letter, index, arr) => {
-            if (arr[index-1] == letter) {
-                previousIndex++
+        // 0 is the best score you can get
+        // the score changes depending if the letter follows themself
+        // for the pattern 'hew' 'helloworld' has a better score than 'hello world'
+
+        if (pattern == string) {
+            return 0
+        } else if (pattern.length > string.length) {
+            return null
+        }
+        let previousIndex = -1, score = 0, index = 0;
+        pattern.split('').some((letter, index, arr) => {
+            index = string.indexOf(letter, previousIndex != -1 ? previousIndex : 0)
+            if (index == -1) {
+                score = null
+                return true
+            } else {
+                score += (previousIndex - index + 1)
             }
-            previousIndex = string.indexOf(letter, previousIndex)
-            if (previousIndex == -1) {
-                failed = true
-            }
+            previousIndex = index
         })
-        return !failed
+        return score
     }
 
     search(pattern, onlyIndex=false) {
-        let matches = []
+        let matches = {}
         pattern = pattern.toLowerCase()
         this.lowerData.forEach((string, index) => {
-            if (this._match(pattern, string)) {
-                if (onlyIndex) {
-                    matches.push(index)
-                } else {
-                    matches.push(this.data[index])
-                }
+            let score = this._match(pattern, string)
+            if (score === null) return
+            if (matches[score] === undefined) {
+                matches[score] = []
             }
+            matches[score].push(onlyIndex ? index : this.data[index])
         })
         return matches
     }
