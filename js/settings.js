@@ -22,6 +22,8 @@ class Settings {
         this.setCurrentPosBtn = this.settingsWindow.querySelector('#set-current-window-pos')
         this.setCurrentSizeBtn = this.settingsWindow.querySelector('#set-current-window-size')
 
+        this.win = remote.getCurrentWindow()
+
         this.bindEvents()
         this.bindDom()
 
@@ -50,7 +52,7 @@ class Settings {
             updateSettings(settings)
         })
 
-        remote.getCurrentWindow().on('show', () => {
+        this.win.on('show', () => {
             this.apply(this.settings)
         })
 
@@ -77,7 +79,7 @@ class Settings {
         })
 
         this.setCurrentPosBtn.addEventListener('click', () => {
-            let bounds = remote.getCurrentWindow().getBounds()
+            let bounds = this.win.getBounds()
             this.windowX.disabled = this.windowY.disabled = false
             this.windowPosCenter.checked = false
             this.windowX.value = bounds.x
@@ -85,14 +87,14 @@ class Settings {
         })
 
         this.setCurrentSizeBtn.addEventListener('click', () => {
-            let size = remote.getCurrentWindow().getSize()
+            let size = this.win.getSize()
             this.windowWidth.value = size[0]
             this.windowHeight.value = size[1]
         })
     }
 
     static apply(settings) {
-        const win = remote.getCurrentWindow()
+        const win = this.win
         win.setAlwaysOnTop(settings.alwaysOnTop)
         win.setBounds({
             x: settings.windowX,
