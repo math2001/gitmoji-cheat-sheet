@@ -43,7 +43,7 @@ h1 {
 }
 
 .header-search::selection {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 .header-search:focus,
