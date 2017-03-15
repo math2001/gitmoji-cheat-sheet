@@ -45,7 +45,7 @@ class Settings {
 
         ipc.on('settings-reloaded', (event, settings) => {
             updateSettings(settings)
-            Notif.show(' ⚙ ↺ and applied!')
+            Notif.show('⚙ Settings reloaded and applied!')
         })
 
         ipc.on('send-settings', (event, settings) => {
@@ -66,6 +66,7 @@ class Settings {
         this.cancelBtn.addEventListener('click', () => {
             this.render(this.settings)
             this.settingsWindow.classList.remove('active')
+            Notif.show('↺ Restored settings')
         })
 
         this.saveBtn.addEventListener('click', () => {
