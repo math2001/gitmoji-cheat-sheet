@@ -25,11 +25,16 @@ class FuzzySearch {
         }
         let previousIndex = -1, score = 0, index = 0;
         pattern.split('').some((letter, index, arr) => {
+            if (letter == arr[index-1]) {
+                previousIndex ++
+            }
             index = string.indexOf(letter, previousIndex != -1 ? previousIndex : 0)
             if (index == -1) {
                 score = null
                 return true
             } else if (previousIndex != -1) {
+                score += (previousIndex - index + 1) * 2
+            } else {
                 score += (previousIndex - index + 1)
             }
             previousIndex = index
