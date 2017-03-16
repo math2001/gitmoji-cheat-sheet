@@ -35,8 +35,9 @@ class Emoji {
 
     static moveHighlight(way) {
         if (way === undefined) {
-            const emoji = document.querySelector('.emoji')
+            const emoji = this.emojis.querySelector('.emoji')
             if (emoji == null) return
+            emoji.scrollIntoViewIfNeeded()
             return emoji.classList.add('highlighted')
         }
 
