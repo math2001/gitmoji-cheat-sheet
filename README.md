@@ -6,9 +6,9 @@ messages, with a fuzzy search feature. I use exactly the same text and emoji fro
 
 There's still some stuff that can be improved, but here's how it looks for now:
 
-![Gitmoji cheat sheet with the search feature](screenshots/add.png)
+![Gitmoji cheat sheet with the search feature](screenshots/fuzzy-searching.gif)
 
-![Gitmoji cheat sheet: you can copy the alias](screenshots/tada.png)
+![Gitmoji cheat sheet: show window back up](screenshots/show.gif)
 
 [gitmoji.carloscuesta.me/]: https://gitmoji.carloscuesta.me/
 

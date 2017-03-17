@@ -33,7 +33,7 @@ class Emoji {
         this.moveHighlight()
     }
 
-    static moveHighlight(way) {
+    static moveHighlight(way) { // ctrl+shift+e
         if (way === undefined) {
             const emoji = this.emojis.querySelector('.emoji')
             if (emoji == null) return
