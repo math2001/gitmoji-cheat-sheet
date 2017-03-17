@@ -28,8 +28,13 @@
 .setting:not(:last-of-type) {
     border-bottom: 1px solid #ddd;
 }
+
 .setting td {
     padding: 20px 0;
+}
+
+.setting td:last-child {
+    padding-left: 7px;
 }
 
 .settings-shortcut {
