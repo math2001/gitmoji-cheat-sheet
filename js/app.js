@@ -35,6 +35,7 @@ class ScrollListener {
 ;(function () {
 
     Clipboard.init()
+    Notif.init()
     Emoji.init()
     Menu.init()
     Settings.init()

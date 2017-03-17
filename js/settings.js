@@ -18,6 +18,7 @@ class Settings {
         this.windowHeight = this.settingsWindow.querySelector('#window-height')
         this.windowX = this.settingsWindow.querySelector('#window-x')
         this.windowY = this.settingsWindow.querySelector('#window-y')
+        this.hideOnCopy = this.settingsWindow.querySelector('#hide-on-copy')
 
         this.setCurrentPosBtn = this.settingsWindow.querySelector('#set-current-window-pos')
         this.setCurrentSizeBtn = this.settingsWindow.querySelector('#set-current-window-size')
@@ -35,6 +36,11 @@ class Settings {
     static bindEvents() {
         EM.on('show-settings-window', () => {
             this.settingsWindow.classList.add('active')
+        })
+
+        EM.on('copy-emoji-alias', ({alias}) => {
+            if (!this.hideOnCopy.checked) return
+            this.win.hide()
         })
 
         const updateSettings = (settings) => {
@@ -138,7 +144,8 @@ class Settings {
             'windowWidth': this.windowWidth.value != '' ? parseInt(this.windowWidth.value) : undefined,
             'windowHeight': this.windowHeight.value != '' ? parseInt(this.windowHeight.value) : undefined,
             'windowX': this.windowX.value != '' ? parseInt(this.windowX.value) : undefined,
-            'windowY': this.windowY.value != '' ? parseInt(this.windowY.value) : undefined
+            'windowY': this.windowY.value != '' ? parseInt(this.windowY.value) : undefined,
+            'hideOnCopy': this.hideOnCopy.checked
         }
     }
 

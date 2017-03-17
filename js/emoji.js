@@ -19,6 +19,7 @@ class Emoji {
         })
 
         this.bindDOM()
+        this.bindEvent()
     }
 
     static handleInput(e) {
@@ -106,8 +107,10 @@ class Emoji {
     }
 
     static copyEmojiAlias(alias) {
-        Clipboard.copy(alias)
-        Notif.show(`📋 Copied <code>${alias}</code> ${emojione.shortnameToUnicode_(alias)}`)
+        EM.emit('copy-emoji-alias', {
+            alias: alias
+        })
+
     }
 
     static bindDOM() {
@@ -133,6 +136,12 @@ class Emoji {
                      </tr>`
         }, this)
         this.emojis.innerHTML = html
+    }
+
+    static bindEvent() {
+        EM.on('copy-emoji-alias', ({alias}) => {
+            Clipboard.copy(alias)
+        })
     }
 
 }

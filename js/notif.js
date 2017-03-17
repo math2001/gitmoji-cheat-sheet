@@ -10,6 +10,16 @@ class Notif {
         }, 500);
     }
 
+    static init() {
+        this.bindEvents()
+    }
+
+    static bindEvents() {
+        EM.on('copy-emoji-alias', ({alias}) => {
+            Notif.show(`📋 Copied <code>${alias}</code> ${emojione.shortnameToUnicode_(alias)}`)
+        })
+    }
+
     static show(html) {
         if (this.notif) {
             this.notif.parentNode.removeChild(this.notif)

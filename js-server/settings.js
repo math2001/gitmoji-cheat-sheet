@@ -17,6 +17,7 @@ class Settings {
             'windowHeight': 550,
             'windowX': 50,
             'windowY': 50,
+            'hideOnCopy': false
         }
         this.settings = this.defaultSettings.extend(this.loadSettings())
     }
