@@ -14,7 +14,7 @@ const Menu = require('./js/menu')
 const Settings = require('./js/settings')
 
 emojione.shortnameToUnicode_ = (text) =>
-emojione.shortnameToUnicode(text).replace(':memo:', '📝')
+    emojione.shortnameToUnicode(text).replace(':memo:', '📝')
 
 class ScrollListener {
     constructor(el, fn) {

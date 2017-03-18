@@ -33,7 +33,7 @@ class FuzzySearch {
                 score = null
                 return true
             } else if (previousIndex != -1) {
-                score += (previousIndex - index + 1) * 2
+                score += (previousIndex - index + 1) * 0.5
             } else {
                 score += (previousIndex - index + 1)
             }
