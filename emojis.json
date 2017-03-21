@@ -1,5 +1,5 @@
 [
-    ["art",                       "Improving structure / format of the code.",  ""],
+    ["art",                       "Improving structure / format of the code.",  "quality"],
     ["zap",                       "Improving performance.",                     "perfs"],
     ["fire",                      "Removing code or files.",                    "- delete"],
     ["bug",                       "Fixing a bug.",                              ""],
