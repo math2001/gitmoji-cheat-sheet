@@ -1,6 +1,8 @@
 "use strict";
 
 const {readFileSync, existsSync: exists, writeFileSync} = require('fs')
+const {homedir} = require('os')
+const path = require('path')
 require('../js/functions').objectAddExtend()
 
 
@@ -8,7 +10,7 @@ class Settings {
 
     static init() {
 
-        this.SETTINGS_FILE = `${__dirname}/../settings.json`
+        this.SETTINGS_FILE = path.join(homedir(), '.gitmoji.json')
         this.defaultSettings = {
             'alwaysOnTop': false,
             'showWindowShortcut': 'CmdOrCtrl+shift+e',
