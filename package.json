@@ -7,12 +7,14 @@
   "author": "math2001",
   "license": "MIT",
   "scripts": {
-    "dist": "electron-packager . --out=dist --electron-version=1.4.15 --name=Gitmoji --icon=imgs/gimoji.ico --all"
+    "dist": "electron-packager . --out=dist --electron-version=1.4.15 --name=Gitmoji --icon=imgs/gimoji.ico --all",
+    "zip-dists": "node zip-dists.js"
   },
   "dependencies": {
     "format-string": "^1.0.0"
   },
   "devDependencies": {
-    "electron-packager": "^8.5.2"
+    "electron-packager": "^8.5.2",
+    "zip-folder": "^1.0.0"
   }
 }
