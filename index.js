@@ -20,7 +20,8 @@ function main() {
             frame: false,
             icon: `${__dirname}/imgs/gitmoji.ico`,
             alwaysOnTop: Settings.settings.alwaysOnTop,
-            center: Settings.settings.windowPosCenter
+            center: Settings.settings.windowPosCenter,
+            title: 'Gitmoji'
         })
 
         mainWindow.loadURL(`file://${__dirname}/index.html`)
@@ -47,6 +48,7 @@ function main() {
         tray.on('click', () => {
             mainWindow.show()
         })
+
     }
 
     app.on('ready', init)
