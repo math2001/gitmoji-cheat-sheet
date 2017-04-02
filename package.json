@@ -6,6 +6,9 @@
   "repository": "https://github.com/math2001/gitmoji-cheat-sheet",
   "author": "math2001",
   "license": "MIT",
+  "scripts": {
+    "dist": "electron-packager . --out=dist --electron-version=1.4.15 --name=Gitmoji --icon=imgs/gimoji.ico --all"
+  },
   "dependencies": {
     "format-string": "^1.0.0"
   },
